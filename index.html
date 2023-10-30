@@ -8,33 +8,43 @@
 </head>
 
 <body>
-    <h1>Actividad de Práctica Clase 1</h1>
-    <h2>Conceptos Generales</h2>
+    <h1>Actividad de Práctica Clase 2</h1>
+    <h2>Control de Flujos</h2>
     <section>
-    <h3>Variables</h3>
+        <h3>Operadores</h3>
         <article>
-            Las variables permiten asignar un valor, guardar información. Pueden ser: "let" permite cambiar valor, o "const" permite que el valor se mantenga.
-            <p>Declarar una variable significa crearla.
-                <ul>
-                    <li>let o const, seguido del nombre que queremos asignarle, usaremos "camelCase" en variables let, y mayúsculas en const.</li>
-                    <li>Todas las variables deben iniciar con una letra, y son keysensitive.</li>
-                    <li>No debemos usar espacios (se usa guión bajo), ni caracteres especiales.</li>
-                </ul>
-                </p>
-            <p>Asignación de una variable significa darle un valor después del signo de igual.
-                <ul>
-                    <li>Los valores pueden ser: númericos, cadena de texto, booleanos, null, undefined.</li>
-                    <li>Los números no van entre comillas, las cadenas de texto si</li>
-                </ul>
+            Los operadores son utilizados para comprobar valores y evaluar condiciones.
+            <p>Operadores relacionales
+            <ul>
+                <li>== Igualdad, se fijará si los valores son iguales.</li>
+                <li>=== Igualdad estricta, se fijará si los valores son iguales, y además que sean el mismo tipo de
+                    dato.</li>
+                <li>!= Distinto que, se fijará en que los valores sean diferentes.</li>
+                <li>!== Distinto estricto, se fijará en que los valores sean diferentes, además de distinto tipo de
+                    dato.</li>
+                <li>> Mayor que, >= Mayor o igual que. Menor que, Menor o igual que. </li>
+            </ul>
             </p>
-            <p>La inicialización de una variable significa realizar la declaración y la asignación al mismo tiempo.</p>
+            <p>Operadores lógicos
+            <ul>
+                <li>&& Operador AND, y. Este va a devolver verdadero, si las dos condiciones son verdaderas, devuelve
+                    falso si al menos una condición es falsa.</li>
+                <li>|| Operador OR, o. Este va a devolver verdadero, si al menos una de las condiciones es verdadera,
+                    devuelve falso si las dos condiciones son falsas.</li>
+                <li>! Operador NOT, no. Este invierte el valor de ala condición, por ejemplo si tenemos verdadero, este
+                    operador lo convertirá en falso.</li>
+            </ul>
+            </p>
         </article>
     </section>
     <section>
-        <h3>Prompt, consola y alert</h3>
-        <p>Prompt muestra un cuadro de dialogo para que el usuario ingrese un dato.</p>
-        <p>Alert muestra una ventana sobre el sitio web</p>
-        <p>Console (console.log) muestra el mensaje o acción a la consola del navegador web.</p>
+        <h3>Condicionales</h3>
+        <article>Nos permiten realizar algo, en caso de que se cumpla algo. Tomar decisiones a partir de condiciones.
+            <p>if, si se cumple una condición realiza una operación.</p>
+            <p>else, si no se cumple el if, con else le pedimos que haga otra operación.</p>
+            <p>else if, podemos con esto añadir más condiciones en caso de que no se cumpla el if inicial. Anidar condiciones.</p>
+            <p>Podemos usar else if cuantas veces lo necesitemos, pero solo puede haber un if al inicio y un else al final.</p>
+        </article>
     </section>
 
     <script src="./js/main.js"></script>
