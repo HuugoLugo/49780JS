@@ -1,5 +1,5 @@
 //Inicia--Recuerda que const no puede modificarse, let si
-const espacioBlanco = " ";
+const ESPACIO_BLANCO = " ";
 let textoParaNombre = "Increiblemente";
 let textoUnion = "tiene";
 let textoParaAños = "años sin bañarse";
@@ -10,6 +10,6 @@ y mostrarlas con un alert y / o log*/
 let ingresaNombre = prompt("Ingrese su nombre");
 let ingresaAños = prompt("¿Cuántos años tiene?");
 
-let sentenciaCompleta = textoParaNombre + espacioBlanco + ingresaNombre + espacioBlanco + textoUnion + espacioBlanco + ingresaAños + espacioBlanco + textoParaAños;
+let sentenciaCompleta = textoParaNombre + ESPACIO_BLANCO + ingresaNombre + ESPACIO_BLANCO + textoUnion + ESPACIO_BLANCO + ingresaAños + ESPACIO_BLANCO + textoParaAños;
 console.log(sentenciaCompleta);
 alert(sentenciaCompleta);
