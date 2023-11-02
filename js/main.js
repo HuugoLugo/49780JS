@@ -1,27 +1,88 @@
-/*1-Dos condiciones: el usuario debe estar registrado y debe ser mayor de edad. 
-Si se cumplen se muestra un mensaje de bienvenida, si no se cumple niega el acceso.*/
-let registrado = true;
-let mayorEdad = 16;
-if (registrado == true && mayorEdad >= 18) { console.log("Bienvenido"); }
-else { console.log("No puedes acceder aquí"); }
+/*1-Bucle for, números pares hasta el 50, y la suma total.
+Muestra números pares y la suma de estos*/
+let evenSum = 0;
+for (let i = 1; i <= 50; i++) {
+    if ([i] % 2 !== 0) { continue; }
+    evenSum += i;
+    console.log(i + " " + evenSum);
+}
 
-/*2-Debe cumplirse una de dos condiciones: etiqueta "en stock", o etiqueta "descuento"
-Si se cumple alguna, mensaje de "producto disponible", si no mensaje de "producto agotado"*/
-let productoStock = false;
-let productoDescuento = false;
-if (productoStock == true || productoDescuento == true) { console.log("producto disponible"); }
-else { console.log("producto agotado"); }
 
-/*3-Una condición: el usuario inicia sesión. Si ya inició sesión, de mensaje de bienvenida
-si no ha iniciado sesión, recuerdale hacerlo.*/
-let iniciaSesion = false;
-if (iniciaSesion == true) { console.log("Bienvenido de vuelta"); }
-else { console.log("Debe iniciar sesión"); }
+/*2-Adivinar número secreto entre 1 y 10 con uso de while,
+permite múltiples intentos hasta adivinar, brinda pistas. */
+const SECRET_NUMBER = 7;
+let tryings = 0;
+let guessings = " ";
 
-/*4-Solicita nombre usuario y contraseña. Permite acceso 
-si es el usuario y contraseña correcta, si no niega el acceso*/
-const USER_NAME = prompt("Ingrese el nombre de usuario que le proporcionó su organización");
-const PASSWORD = prompt("Ingrese su contraseña");
-if (USER_NAME === "admin" && (PASSWORD === "secreta" || PASSWORD === "123456")) {
-    alert("Bienvenido");
-} else { alert("Datos inválidos"); }
+while (guessings !== SECRET_NUMBER) {
+    guessings = parseInt(prompt("Adivina el número que te permite pasar (está entre 1 y 10)"));
+    tryings++;
+    if (guessings <= 5) {
+        alert("je je, no es tan bajo, intenta otra vez.")
+    }
+    if (guessings > 7) {
+        alert("No es tan alto, intenta otra vez.");
+    }
+}
+alert("Felicidades, solo necesitaste" + " " + tryings + " " + "intento(s)");
+
+
+
+/*3-Calculadora simple entre dos números, que permita suma,
+resta, multiplicación y división, que permita hacer operaciones
+hasta que decida salir, utiliza do while.*/
+let keepTrying;
+
+do {
+    const FIRST_NUMBER = parseFloat(prompt("Ingrese el primer número"));
+    const OPERATIONS = prompt("Ingrese la operación deseada: +, -, *, /");
+    const SECOND_NUMBER = parseFloat(prompt("Ingrese el segundo número"));
+    let result;
+
+    switch (OPERATIONS) {
+        case "+":
+            result = FIRST_NUMBER + SECOND_NUMBER;
+            break;
+        case "-":
+            result = FIRST_NUMBER - SECOND_NUMBER;
+            break;
+        case "*":
+            result = FIRST_NUMBER * SECOND_NUMBER;
+            break;
+        case "/":
+            result = FIRST_NUMBER / SECOND_NUMBER;
+            break;
+        default:
+            alert("No se puede ejecutar, intente otra vez");
+            result = "Indefinido";
+    }
+
+    alert("Resultado: " + result);
+    keepTrying = prompt("¿Quiere hacer otra operación?, responda si o no").toLowerCase();
+} while (keepTrying === "si");
+
+
+/*4-Convertir una moneda a otra, usa switch para diferentes tipos, de pesos mexicanos 
+a dolar E.U, peso argentino, real brasileño. 1 peso mx: .056 dolares, 19.68 pesos argentinos, .28 reales*/
+const COIN_ARS = 19.68;
+const COIN_BRL = .28;
+const COIN_USD = .056;
+const COIN_MXN = parseFloat(prompt("Ingrese la cantidad de pesos mexicanos a convertir"));
+const COIN_SELECTION = prompt("¿Qué moneda desea obtener? ARS, BRL, USD").toUpperCase();
+let convertion;
+
+switch (COIN_SELECTION) {
+    case "USD":
+        convertion = "USD $" + (COIN_MXN * COIN_USD);
+        break;
+    case "ARS":
+        convertion = "ARS $" + (COIN_MXN * COIN_ARS);
+        break;
+    case "BRL":
+        convertion = "BRL R$" + (COIN_MXN * COIN_BRL);
+        break;
+    default:
+        alert("No se puede ejecutar, intente otra vez");
+        convertion = "Indefinido";
+}
+alert("MXN $" + COIN_MXN + " = " + convertion);
