@@ -8,42 +8,56 @@
 </head>
 
 <body>
-    <h1>Actividad de Práctica Clase 2</h1>
-    <h2>Control de Flujos</h2>
+    <h1>Actividad de Práctica Clase 3</h1>
+    <h2>Ciclos (bucles o iteraciones) y Switch</h2>
     <section>
-        <h3>Operadores</h3>
+        <h3>Ciclos por conteo FOR</h3>
         <article>
-            Los operadores son utilizados para comprobar valores y evaluar condiciones.
-            <p>Operadores relacionales
+            En los ciclos por conteo se repite un bloque de código un número de veces específico.
+            <p>FOR for (desde; hasta; actualización);{acciones / ejecución}
             <ul>
-                <li>== Igualdad, se fijará si los valores son iguales.</li>
-                <li>=== Igualdad estricta, se fijará si los valores son iguales, y además que sean el mismo tipo de
-                    dato.</li>
-                <li>!= Distinto que, se fijará en que los valores sean diferentes.</li>
-                <li>!== Distinto estricto, se fijará en que los valores sean diferentes, además de distinto tipo de
-                    dato.</li>
-                <li>> Mayor que, >= Mayor o igual que. Menor que, Menor o igual que. </li>
+                <li>En la estructura for debe estar: desde (valores iniciales), hasta (establecer el "límite", hasta
+                    cuando repetirse),
+                    actualización (es el nuevo valor que se asigna después de cada repetición).</li>
+                <li>Usamos la sentencia "break" cuando queremos interrumpir un for antes de que se cumpla toda la
+                    iteración.</li>
+                <li>Usamos la sentencia "continue" cuando queremos que "brinque" algo que establezcamos y continue.</li>
+                <li>En la actualización se acostumbra usar operadores de incremento / decremento. ++, --.</li>
             </ul>
             </p>
-            <p>Operadores lógicos
+        </article>
+        <h3>Ciclos condicionales WHILE, DO WHILE</h3>
+        <article>
+            En los ciclos condicionales se repite un bloque de código mientras la condición evaluada sea verdadera.
+            <p>WHILE while (condición){acciones / ejecución}
             <ul>
-                <li>&& Operador AND, y. Este va a devolver verdadero, si las dos condiciones son verdaderas, devuelve
-                    falso si al menos una condición es falsa.</li>
-                <li>|| Operador OR, o. Este va a devolver verdadero, si al menos una de las condiciones es verdadera,
-                    devuelve falso si las dos condiciones son falsas.</li>
-                <li>! Operador NOT, no. Este invierte el valor de ala condición, por ejemplo si tenemos verdadero, este
-                    operador lo convertirá en falso.</li>
+                <li>Evalua la condición, mientras se cumpla, ejecuta, se detiene al no cumplirse.</li>
+                <li>Se ejecutan cero o más veces dependiendo de la condición.</li>
+                <li>Asumimos que la repetición finalizará, hay que tener cuidado en nuestro código ya que podemos
+                    generar el "bucle infinito".</li>
+            </ul>
+
+            </p>
+            <p>DO WHILE do {acciones / ejecución} while (condición)
+            <ul>
+                <li>Ejecuta, al final evalua la condición, y a partir de ella es que se sigue ejecutando o no.</li>
+                <li>Se ejecutan una o más veces dependiendo de la condición.</li>
             </ul>
             </p>
         </article>
     </section>
     <section>
-        <h3>Condicionales</h3>
-        <article>Nos permiten realizar algo, en caso de que se cumpla algo. Tomar decisiones a partir de condiciones.
-            <p>if, si se cumple una condición realiza una operación.</p>
-            <p>else, si no se cumple el if, con else le pedimos que haga otra operación.</p>
-            <p>else if, podemos con esto añadir más condiciones en caso de que no se cumpla el if inicial. Anidar condiciones.</p>
-            <p>Podemos usar else if cuantas veces lo necesitemos, pero solo puede haber un if al inicio y un else al final.</p>
+        <h3>Switch</h3>
+        <article>Nos sirve para manejar de forma sencilla múltiples condiciones sobre una misma variable. switch( ){case
+            : ,sentencia "break";, default}
+            <ul>
+                <li>El "case" puede entenderse como un if, que de cumplirse ejecuta código y no avanza a los demás
+                    "case"
+                    gracias a la sentencia break.</li>
+                <li>Pueden colocarse cuantos "case" sean necesarios, acompañados de la sentencia break.</li>
+                <li>Al final se coloca un "default" que puede entenderse como un else, ya que si no aplica ningún "case"
+                    aplicará lo que se coloque en "default".</li>
+            </ul>
         </article>
     </section>
 

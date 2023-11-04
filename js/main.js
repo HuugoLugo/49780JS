@@ -1,18 +1,17 @@
-/*Inicia--Recuerda que const no puede modificarse, let si, aqui coloca la pregunta (parsea para que tome numero), 
-y las respuestas que se le darán.*/
-const EVALUA_SERVICIO = parseInt(prompt("Por favor evalúe nuestro servicio, ingrese un valor entre 0 y 10 (siendo 10 lo más alto). Si nuestro servicio es excelente escriba el valor 100 "));
-
-let excelenteServicio = "Usted es sabio, y gracias a ello, se ha ganado un descuento de $1000.";
-let buenServicio = "Le agradecemos su valoración, queremos seguir ayudandolo a conseguir sus objetivos.";
-let malServicio = "Lamentamos esa valoración, esperamos mejorar en su servicio, escribanos a ayudita@noleayudo.com, para poder atenderlo mejor.";
-let noLee = "Hola, lo invito a leer bien, eso no es lo que le pedimos, intente otra vez.";
-
-/*Aquí vas a escribir las condiciones que se deben cumplir para entregar distintas respuestas
-y mostrarlas con un alert y / o log*/
-if (isNaN(EVALUA_SERVICIO)) { alert("Ese ni es un número, intente otra vez."); }
-else {
-    if (EVALUA_SERVICIO === 100) { alert(excelenteServicio); }
-    else if (EVALUA_SERVICIO >= 6 && EVALUA_SERVICIO <= 10) { alert(buenServicio); }
-    else if (EVALUA_SERVICIO <= 5) { alert(malServicio); }
-    else { alert(noLee); }
-}
+/*Esto te muestra como hacer una cancioncita de grupo, para que todos se vayan cantando, pasando de un nombre a otro
+se hace uso de do while y switch*/
+let continueDoing;
+do {
+    const SONG_NAME = prompt("¿De qué tema quiere su cancioncita de grupo? (escriba sardinas, mocos o vaca)").toLowerCase();
+    let peopleName = prompt("Ingrese el nombre de una persona").toUpperCase();
+    switch (SONG_NAME) {
+        case "sardinas": alert("Una sardina, dos sardinas, tres sardinas, tres sardinas y un gato se apostaron la manera, la manera de meterse, de meterse a un zapato, de la chichichichihuahua de la huahuahuahuachichi que lo repita " + peopleName);
+            break;
+        case "mocos": alert(peopleName + " tiene un moco, lo saca poco a poco, lo redondea, lo mira con deseo, se lo come, y como fue muy poco, se saca otro moco.");
+            break;
+        case "vaca": alert("Caminando por el bosque una vaca me encontré. Como no tenia nombre " + peopleName + " le pondré con sus ojos bien grandotes y su boca que hace muu, si te jala de la ropa otro nombre dices tu.");
+            break;
+        default: alert("Esa no la tenemos, para la otra.")
+    }
+    continueDoing = prompt("¿Desea probar de nuevo? (responda si / no)");
+} while (continueDoing === "si"); 
