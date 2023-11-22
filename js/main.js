@@ -1,88 +1,59 @@
-/*1-Bucle for, números pares hasta el 50, y la suma total.
-Muestra números pares y la suma de estos*/
-let evenSum = 0;
-for (let i = 1; i <= 50; i++) {
-    if ([i] % 2 !== 0) { continue; }
-    evenSum += i;
-    console.log(i + " " + evenSum);
-}
-
-
-/*2-Adivinar número secreto entre 1 y 10 con uso de while,
-permite múltiples intentos hasta adivinar, brinda pistas. */
-const SECRET_NUMBER = 7;
-let tryings = 0;
-let guessings = " ";
-
-while (guessings !== SECRET_NUMBER) {
-    guessings = parseInt(prompt("Adivina el número que te permite pasar (está entre 1 y 10)"));
-    tryings++;
-    if (guessings <= 5) {
-        alert("je je, no es tan bajo, intenta otra vez.")
+/*1-Función que toma como argumento un número, debe devolver si es
+un número par o un número impar*/
+function esParImpar (numerin) {
+    if (numerin % 2 === 0){
+        console.log(numerin + " Es un número par");
+    } else {
+        console.log(numerin + " Es un número impar");
     }
-    if (guessings > 7) {
-        alert("No es tan alto, intenta otra vez.");
     }
-}
-alert("Felicidades, solo necesitaste" + " " + tryings + " " + "intento(s)");
-
-
-
-/*3-Calculadora simple entre dos números, que permita suma,
-resta, multiplicación y división, que permita hacer operaciones
-hasta que decida salir, utiliza do while.*/
-let keepTrying;
-
-do {
-    const FIRST_NUMBER = parseFloat(prompt("Ingrese el primer número"));
-    const OPERATIONS = prompt("Ingrese la operación deseada: +, -, *, /");
-    const SECOND_NUMBER = parseFloat(prompt("Ingrese el segundo número"));
-    let result;
-
-    switch (OPERATIONS) {
-        case "+":
-            result = FIRST_NUMBER + SECOND_NUMBER;
-            break;
-        case "-":
-            result = FIRST_NUMBER - SECOND_NUMBER;
-            break;
-        case "*":
-            result = FIRST_NUMBER * SECOND_NUMBER;
-            break;
-        case "/":
-            result = FIRST_NUMBER / SECOND_NUMBER;
-            break;
-        default:
-            alert("No se puede ejecutar, intente otra vez");
-            result = "Indefinido";
+    
+    esParImpar(10)
+    
+    
+    /*2-Función que toma tres argumentos: forma, base y altura. Que devuelva
+    el área de un triángulo o de un rectángulo. */
+    function calcularArea (forma, base, altura) {
+        if (forma === "triangulo"){
+            console.log("El área del triángulo es " + (base * altura) / 2);
+        } else if (forma === "rectangulo"){
+            console.log("El área del rectángulo es " + base * altura);
+        } else {
+            console.log("Esa forma no la podemos calcular");
+        }
     }
-
-    alert("Resultado: " + result);
-    keepTrying = prompt("¿Quiere hacer otra operación?, responda si o no").toLowerCase();
-} while (keepTrying === "si");
-
-
-/*4-Convertir una moneda a otra, usa switch para diferentes tipos, de pesos mexicanos 
-a dolar E.U, peso argentino, real brasileño. 1 peso mx: .056 dolares, 19.68 pesos argentinos, .28 reales*/
-const COIN_ARS = 19.68;
-const COIN_BRL = .28;
-const COIN_USD = .056;
-const COIN_MXN = parseFloat(prompt("Ingrese la cantidad de pesos mexicanos a convertir"));
-const COIN_SELECTION = prompt("¿Qué moneda desea obtener? ARS, BRL, USD").toUpperCase();
-let convertion;
-
-switch (COIN_SELECTION) {
-    case "USD":
-        convertion = "USD $" + (COIN_MXN * COIN_USD);
-        break;
-    case "ARS":
-        convertion = "ARS $" + (COIN_MXN * COIN_ARS);
-        break;
-    case "BRL":
-        convertion = "BRL R$" + (COIN_MXN * COIN_BRL);
-        break;
-    default:
-        alert("No se puede ejecutar, intente otra vez");
-        convertion = "Indefinido";
-}
-alert("MXN $" + COIN_MXN + " = " + convertion);
+    
+    calcularArea ("rectangulo", 5, 6)
+    
+    
+    /*3-Función que toma una contraseña como argumento y verifique si cumple
+    con al menos 8 caracteres, y que contenga el símbolo @ para ser ´valida.
+    Si cumple devuelve "contraseña válida", si no, "contraseña no cumple requisitos"*/
+    const SYMBOL_VALIDATE = "@";
+    function esContraValida (contra) {
+        if (contra.length >=8 && contra.includes(SYMBOL_VALIDATE)){
+            console.log("Contraseña válida");
+        alert("Contraseña válida, bienvenido");}
+            else{
+                console.log("Contraseña no cumple requisitos");
+                alert("Contraseña no cumple requisitos");
+            }
+    }
+    let ingresaContra = prompt("Ingrese su contraseña  (al menos 8 caracteres, y contar con el símbolo @)");
+    esContraValida(ingresaContra)
+    
+    
+    /*4-Escriba función que toma dos argumentos: cantidad y precioUnitario.
+    La función debe tomar en cuenta la cantidad comprada.Si la cantidad 
+    es igual o mayor a 10 de debe aplicar un descuento. Devuelve el precio total.*/
+    let descuento = .25;
+    function calculaTotal(cantidad, precioUnitario) {
+        let precioTotal = cantidad * precioUnitario;
+        if (cantidad >=10){
+            console.log("Debido a la cantidad comprada, su precio con descuento es de $" + precioTotal * (1-descuento));
+        } else{
+            console.log("El precio es de $" + precioTotal);
+        }
+    }
+    calculaTotal (10,350)
+    
