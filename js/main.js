@@ -1,59 +1,58 @@
-/*1-Función que toma como argumento un número, debe devolver si es
-un número par o un número impar*/
-function esParImpar (numerin) {
-    if (numerin % 2 === 0){
-        console.log(numerin + " Es un número par");
-    } else {
-        console.log(numerin + " Es un número impar");
+/*1-Dado un array de personas que contiene nombre y edad, escribe una
+función que calcule y retorne el promedio de edades*/
+const PERSONAS = [
+    { nombre: "Juan", edad: 30 },
+    { nombre: "María", edad: 25 },
+    { nombre: "Luis", edad: 35 },
+    { nombre: "Caroline", edad: 28 }
+]
+function calcularPromedioEdades(arrayPersonas) {
+    let sumaEdades = 0;
+    for (let i = 0; i < arrayPersonas.length; i++) {
+        sumaEdades += arrayPersonas[i].edad;
     }
-    }
-    
-    esParImpar(10)
-    
-    
-    /*2-Función que toma tres argumentos: forma, base y altura. Que devuelva
-    el área de un triángulo o de un rectángulo. */
-    function calcularArea (forma, base, altura) {
-        if (forma === "triangulo"){
-            console.log("El área del triángulo es " + (base * altura) / 2);
-        } else if (forma === "rectangulo"){
-            console.log("El área del rectángulo es " + base * altura);
-        } else {
-            console.log("Esa forma no la podemos calcular");
+    const PROMEDIO = sumaEdades / arrayPersonas.length;
+    return PROMEDIO;
+}
+
+const PROMEDIO_EDADES = calcularPromedioEdades(PERSONAS);
+console.log("El promedio de edades es: " + PROMEDIO_EDADES);
+
+
+/*2-Dado un array de números, crea función que devuelva un array con
+ solo números pares */
+const NUMEROS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+function filtraNumerosPares(arrayNumeros) {
+    const NUMEROS_PARES = [];
+    for (let i = 0; i < arrayNumeros.length; i++) {
+        if (arrayNumeros[i] % 2 === 0) {
+            NUMEROS_PARES.push(arrayNumeros[i]);
         }
     }
-    
-    calcularArea ("rectangulo", 5, 6)
-    
-    
-    /*3-Función que toma una contraseña como argumento y verifique si cumple
-    con al menos 8 caracteres, y que contenga el símbolo @ para ser ´valida.
-    Si cumple devuelve "contraseña válida", si no, "contraseña no cumple requisitos"*/
-    const SYMBOL_VALIDATE = "@";
-    function esContraValida (contra) {
-        if (contra.length >=8 && contra.includes(SYMBOL_VALIDATE)){
-            console.log("Contraseña válida");
-        alert("Contraseña válida, bienvenido");}
-            else{
-                console.log("Contraseña no cumple requisitos");
-                alert("Contraseña no cumple requisitos");
-            }
-    }
-    let ingresaContra = prompt("Ingrese su contraseña  (al menos 8 caracteres, y contar con el símbolo @)");
-    esContraValida(ingresaContra)
-    
-    
-    /*4-Escriba función que toma dos argumentos: cantidad y precioUnitario.
-    La función debe tomar en cuenta la cantidad comprada.Si la cantidad 
-    es igual o mayor a 10 de debe aplicar un descuento. Devuelve el precio total.*/
-    let descuento = .25;
-    function calculaTotal(cantidad, precioUnitario) {
-        let precioTotal = cantidad * precioUnitario;
-        if (cantidad >=10){
-            console.log("Debido a la cantidad comprada, su precio con descuento es de $" + precioTotal * (1-descuento));
-        } else{
-            console.log("El precio es de $" + precioTotal);
+    return NUMEROS_PARES;
+}
+const NUMEROS_PARES = filtraNumerosPares(NUMEROS);
+console.log("numeros pares: " + NUMEROS_PARES);
+
+
+/*3-Dado un array de estudiantes con sus calificaciones, escribe una
+función retorne un nuevo array con estudiantes calificación mayor a 70.*/
+const ESTUDIANTES = [
+    { nombre: "Pamela", calificación: 62 },
+    { nombre: "Natalia", calificación: 74 },
+    { nombre: "Eva", calificación: 77 },
+    { nombre: "Emelly", calificación: 66 },
+    { nombre: "Maritza", calificación: 90 },
+    { nombre: "Caroline", calificación: 90 }
+];
+function estudiantesAprobados(arrayEstudiantes) {
+    const ESTUDIANTES_APROBADOS = [];
+    for (let i = 0; i < arrayEstudiantes.length; i++) {
+        if (arrayEstudiantes[i].calificación >= 70) {
+            ESTUDIANTES_APROBADOS.push(arrayEstudiantes[i]);
         }
     }
-    calculaTotal (10,350)
-    
+    return console.log(ESTUDIANTES_APROBADOS);
+}
+estudiantesAprobados(ESTUDIANTES);
+
