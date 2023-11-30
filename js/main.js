@@ -31,7 +31,7 @@ const GRIDDLE_CAKE2 = new Cakes("Pastel 1/2 de plancha", 400, "mediano");
 const GRIDDLE_CAKE3 = new Cakes("Pastel de plancha completa", 600, "grande");
 const ROUND_CAKE1 = new Cakes("Pastel redondo", 300, "un piso");
 const ROUND_CAKE2 = new Cakes("Pastel redondo", 450, "dos pisos");
-console.log(GRIDDLE_CAKE1.obtainData());
+//console.log(GRIDDLE_CAKE1.obtainData());
 
 const CAKES_ARRAY = [GRIDDLE_CAKE1, GRIDDLE_CAKE2, GRIDDLE_CAKE3, ROUND_CAKE1, ROUND_CAKE2];
 
@@ -56,9 +56,9 @@ const DISCOUNT6 = new Discounts("ELPATRONSEVOLVIOLOCO", 70, "aniversario");
 DISCOUNTS_ARRAY.push(DISCOUNT6);
 
 
-let howMuchSpending = parseFloat(prompt("¿Cuánto quiere gastar en un pastel?"));
+let howMuchSpending = parseFloat(prompt("¿Cuánto quiere gastar en un pastel? (ingrese cantidad en números)"));
 if (isNaN(howMuchSpending)) {
-    alert("Por favor ingrese números");
+    alert("Por favor esos no son números");
 } else {
     let filterPrice = CAKES_ARRAY.filter(function (cakePrice) {
         return cakePrice.price <= howMuchSpending;
