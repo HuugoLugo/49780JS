@@ -8,57 +8,62 @@
 </head>
 
 <body>
-    <h1>Actividad de Práctica Clase 3</h1>
-    <h2>Ciclos (bucles o iteraciones) y Switch</h2>
+    <h1>Actividad de Práctica Clase 5</h1>
+    <h2>Conceptos Generales</h2>
     <section>
-        <h3>Ciclos por conteo FOR</h3>
-        <article>
-            En los ciclos por conteo se repite un bloque de código un número de veces específico.
-            <p>FOR for (desde; hasta; actualización);{acciones / ejecución}
+        <h3>Objetos</h3>
+        <article>Colección de datos para organizar y almacenar información relacionada.
+            <p>Característica y uso
             <ul>
-                <li>En la estructura for debe estar: desde (valores iniciales), hasta (establecer el "límite", hasta
-                    cuando repetirse),
-                    actualización (es el nuevo valor que se asigna después de cada repetición).</li>
-                <li>Usamos la sentencia "break" cuando queremos interrumpir un for antes de que se cumpla toda la
-                    iteración.</li>
-                <li>Usamos la sentencia "continue" cuando queremos que "brinque" algo que establezcamos y continue.</li>
-                <li>En la actualización se acostumbra usar operadores de incremento / decremento. ++, --.</li>
+                <li>Se compone de un listado de pares (clave-valor)</li>
+                <li>Un objeto literal se define en una variable, entre llaves {} se colocan los pares clave : valor,
+                    añadiendo una coma si se va agregar otro par. </li>
+                <li>Para llamar a los datos de manera general se coloca el nombre de la variable. Para llamar a una
+                    propiedad -> variable.propiedad (también -> variable["propiedad"]).</li>
+                <li>Se puede crear un objeto, colocar las claves (propiedades) y dejar el valor al vacío (colocando ""),
+                    llamar más tarde y colocar el valor. También de esta manera podemos asignar un nuevo valor, en caso
+                    que ya tenga uno.</li>
             </ul>
             </p>
         </article>
-        <h3>Ciclos condicionales WHILE, DO WHILE</h3>
-        <article>
-            En los ciclos condicionales se repite un bloque de código mientras la condición evaluada sea verdadera.
-            <p>WHILE while (condición){acciones / ejecución}
-            <ul>
-                <li>Evalua la condición, mientras se cumpla, ejecuta, se detiene al no cumplirse.</li>
-                <li>Se ejecutan cero o más veces dependiendo de la condición.</li>
-                <li>Asumimos que la repetición finalizará, hay que tener cuidado en nuestro código ya que podemos
-                    generar el "bucle infinito".</li>
-            </ul>
 
-            </p>
-            <p>DO WHILE do {acciones / ejecución} while (condición)
+        <h3>Constructores - Métodos</h3>
+        <article>
+            <p>El constructor de un objeto es una función para crear un nuevo objeto cada que sea necesario.
             <ul>
-                <li>Ejecuta, al final evalua la condición, y a partir de ella es que se sigue ejecutando o no.</li>
-                <li>Se ejecutan una o más veces dependiendo de la condición.</li>
+                <li>Se escribe "function", y el nombre que le demos su primer letra debe estar en mayúscula.</li>
+                <li>Dentro de los parentesis de la función se colocan los parámetros que deseemos, separados por una
+                    coma.</li>
+                <li>"this" se utiliza dentro del constructor para hacer referencia a los parámetros que colocamos en los
+                    parentesis.</li>
+                <li>"new" se utiliza al hacer uso de la función constructora para crear un objeto, donde bastará con
+                    colocar los valores de los parámetros separados por una coma.</li>
+            </ul>
+            </p>
+            <p>Los métodos son funciones que se limitan a ser ejecutados desde el mismo objeto.
+            <ul>
+                <li>Las funciones generalmente retornan un valor, los métodos pueden no retornar un valor y requieren un
+                    objeto.</li>
+                <li>Js tiene sus propios objetos, y por ende métodos disponibles por ejemplo: .length, .toLowerCase,
+                    .toUpperCase</li>
+                <li>Nosotros podemos crear nuestros propios métodos, referenciando funciones por su nombre o definiendo
+                    funciones anónimas asociadas a una propiedad de la función constructora.</li>
             </ul>
             </p>
         </article>
-    </section>
-    <section>
-        <h3>Switch</h3>
-        <article>Nos sirve para manejar de forma sencilla múltiples condiciones sobre una misma variable. switch( ){case
-            : ,sentencia "break";, default}
+
+        <h3>Clases</h3>
+        <article>Permite crear objetos personalizados con una sintáxis más clara y simple.
+            <p>
             <ul>
-                <li>El "case" puede entenderse como un if, que de cumplirse ejecuta código y no avanza a los demás
-                    "case"
-                    gracias a la sentencia break.</li>
-                <li>Pueden colocarse cuantos "case" sean necesarios, acompañados de la sentencia break.</li>
-                <li>Al final se coloca un "default" que puede entenderse como un else, ya que si no aplica ningún "case"
-                    aplicará lo que se coloque en "default".</li>
+                <li>Se usa la palabra "class" seguido del nombre que asignemos (su primer letra debe ser mayúscula) y
+                    {}.</li>
+                <li>Dentro de la clase se utiliza el método "constructor" (que reemplaza la función constructora).</li>
+                <li>Los métodos en las clases se declaran sin la palabra "function".</li>
             </ul>
+            </p>
         </article>
+
     </section>
 
     <script src="./js/main.js"></script>
