@@ -8,58 +8,66 @@
 </head>
 
 <body>
-    <h1>Actividad de Práctica Clase 5</h1>
+    <h1>Actividad de Práctica Clase 6</h1>
     <h2>Conceptos Generales</h2>
     <section>
-        <h3>Objetos</h3>
-        <article>Colección de datos para organizar y almacenar información relacionada.
+        <h3>Arrays</h3>
+        <article>Tipo de dato para almacenar valores en forma de lista.
             <p>Característica y uso
             <ul>
-                <li>Se compone de un listado de pares (clave-valor)</li>
-                <li>Un objeto literal se define en una variable, entre llaves {} se colocan los pares clave : valor,
-                    añadiendo una coma si se va agregar otro par. </li>
-                <li>Para llamar a los datos de manera general se coloca el nombre de la variable. Para llamar a una
-                    propiedad -> variable.propiedad (también -> variable["propiedad"]).</li>
-                <li>Se puede crear un objeto, colocar las claves (propiedades) y dejar el valor al vacío (colocando ""),
-                    llamar más tarde y colocar el valor. También de esta manera podemos asignar un nuevo valor, en caso
-                    que ya tenga uno.</li>
+                <li>Puede contener números, strings, booleanos, objetos, incluso una lista de listas.</li>
+                <li>Es posible agregar o quitar elementos en todo momento.</li>
+                <li>Tienen un índice que comienza siempre desde la posición cero.</li>
+                <li>El orden en que se coloquen si importa.</li>
+                <li>Para declarar un array hay que comenzar con una variable, se abren corchetes [], dentro lo que
+                    coloquemos debe estar separado por una coma. Se puede declarar un array vacío y más adelante
+                    incorporar elementos.</li>
+                <li>Podemos acceder a un elemento en específico del array a través de su posición. Se coloca el nombre
+                    de la variable que contiene el array, se abren corchetes y dentro se coloca el número de la posición
+                    del elemento / valor que deseamos.</li>
+                <li>Para recorrer un array hacemos uso del bucle for.</li>
             </ul>
             </p>
         </article>
 
-        <h3>Constructores - Métodos</h3>
-        <article>
-            <p>El constructor de un objeto es una función para crear un nuevo objeto cada que sea necesario.
+        <h3>Arrays (Propiedades - Métodos)</h3>
+        <article>Las propiedades y métodos se utilizan en el array para conocer cierta información, añadir o quitar
+            elementos, generar nuevos arrays o incluso mezclarlos.
+            <p>variable(que contiene al array).propiedad / método (al final del método se colocan parentesis())
             <ul>
-                <li>Se escribe "function", y el nombre que le demos su primer letra debe estar en mayúscula.</li>
-                <li>Dentro de los parentesis de la función se colocan los parámetros que deseemos, separados por una
-                    coma.</li>
-                <li>"this" se utiliza dentro del constructor para hacer referencia a los parámetros que colocamos en los
-                    parentesis.</li>
-                <li>"new" se utiliza al hacer uso de la función constructora para crear un objeto, donde bastará con
-                    colocar los valores de los parámetros separados por una coma.</li>
-            </ul>
-            </p>
-            <p>Los métodos son funciones que se limitan a ser ejecutados desde el mismo objeto.
-            <ul>
-                <li>Las funciones generalmente retornan un valor, los métodos pueden no retornar un valor y requieren un
-                    objeto.</li>
-                <li>Js tiene sus propios objetos, y por ende métodos disponibles por ejemplo: .length, .toLowerCase,
-                    .toUpperCase</li>
-                <li>Nosotros podemos crear nuestros propios métodos, referenciando funciones por su nombre o definiendo
-                    funciones anónimas asociadas a una propiedad de la función constructora.</li>
+                <li>Propiedad length, utilizada para conocer el largo de un array, identificar cuantos elementos tiene,
+                    en cadenas de texto nos dice cuantos caracteres contiene.</li>
+                <li>Método push, permite agregar un nuevo elemento al final del array, se coloca dentro de los
+                    parentesis el elemento a agregar.Si se desea agregar al inicio del array se utiliza unshift.</li>
+                <li>Método pop, elimina el último elemento del array, no se coloca nada en los (). Mientras que shift
+                    elimina el primer elemento del array.</li>
+                <li>Método splice, permite eliminar uno o más elementos de un array, funciona con dos parámetros:
+                    índice(en donde se posiciona) y cantidad de elementos a eliminar(desde esa posición).</li>
+                <li>Método join, genera un string con los elementos del array separados por el valor que colocamos de
+                    parámetro (por ejemplo, una coma, un espacio, un asterisco).</li>
+                <li>Método split, permite convertir una cadena de caracteres a un array, se coloca en los () lo que
+                    separa a los elementos, por ejemplo un espacio o una coma. </li>
+                <li>Método concat, permite combinar dos arrays en uno, en el parámetro se coloca el array que se va a
+                    combinar.</li>
+                <li>Método indexOf, permite obtener el índice (posición) de un elemento, que colocamos como parámetro.
+                    Si elemento no existe retorna -1.</li>
+                <li>Método includes, permite saber si un elemento (que se coloca como parámetro) existe o no dentro de
+                    un array, retorna true / false.</li>
+                <li>Método reverse, invierte el orden de los elementos del array, no se coloca nada en los ().</li>
             </ul>
             </p>
         </article>
 
-        <h3>Clases</h3>
-        <article>Permite crear objetos personalizados con una sintáxis más clara y simple.
+        <h3>Arrays de objetos</h3>
+        <article>Estructura de datos para coleccionar objetos.
             <p>
             <ul>
-                <li>Se usa la palabra "class" seguido del nombre que asignemos (su primer letra debe ser mayúscula) y
-                    {}.</li>
-                <li>Dentro de la clase se utiliza el método "constructor" (que reemplaza la función constructora).</li>
-                <li>Los métodos en las clases se declaran sin la palabra "function".</li>
+                <li>Podemos asignar objetos literales o previamente instanciados en la declaración del array.</li>
+                <li>Podemos agregar nuevos objetos usando el constructor, dentro de los corchetes del array se abren
+                    llaves, dentro está el objeto (recordando que debe ser clave: valor), se cierran llaves, para añadir
+                    más objetos solo basta separarlos con una coma.</li>
+                <li>Para agregar nuevos objetos con el método push, dentro de los corchetes se abren llaves que
+                    contienen las clave: valor, separados por una coma.</li>
             </ul>
             </p>
         </article>
