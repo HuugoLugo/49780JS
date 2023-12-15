@@ -145,7 +145,7 @@ const ADD_BREAD_TO_CART = (id) => {
 
 const CART_CONTAINER = document.getElementById("cartSection");
 
-/*Botones para ver - vaciar carrito */
+/*Ver - vaciar carrito */
 const ERASE_CART = document.getElementById("eraseCart");
 ERASE_CART.addEventListener("click", () => {
     cartProducts.splice(0, cartProducts.length);
@@ -157,13 +157,14 @@ SEE_CART.addEventListener("click", () => {
     showCart();
 })
 
+const CART_TOTAL = document.getElementById("cartTotal");
+
 /*Función que despliega la lista de productos que se han añadido al carrito, botón para eliminar un producto, y botón
 para aplicar código de descuento que es alojado en localStorage*/
 function showCart() {
-    const CART_TOTAL = document.getElementById("cartTotal");
     const CART_LIST = document.getElementById("cartList");
     let totalAmount = 0;
-    
+
     CART_LIST.innerHTML = ``
     cartProducts.forEach(product => {
         const LIST_PRODUCT = document.createElement("li");
@@ -182,42 +183,35 @@ function showCart() {
         })
 
         totalAmount += product.price * product.quantity;
-
-        /*Botón que aplica códigos de descuento */
-        const BTN_DISCOUNT = document.getElementById("applyCode");
-        BTN_DISCOUNT.addEventListener("click", (applyDiscount));
-        /*Función que aplica códigos de descuento */
-        function applyDiscount() {
-            const CODE_DISCOUNT_INPUT = document.getElementById("codeDiscountInput");
-            let discountCode = CODE_DISCOUNT_INPUT.value.toUpperCase();
-            const CODE_DISCOUNT_JSON = JSON.stringify(discountCode);
-            localStorage.setItem("codigo", CODE_DISCOUNT_JSON);
-            const CODE_DISCOUNT_FROM_STORAGE = localStorage.getItem("codigo");
-            const CODE_DISCOUNT_TO_USE = JSON.parse(CODE_DISCOUNT_FROM_STORAGE);
-
-            const CODE_DISCOUNT_MATCH = DISCOUNTS_ARRAY.find(discount => discount.code === CODE_DISCOUNT_TO_USE);
-            if (CODE_DISCOUNT_MATCH) {
-                discountAmount = CODE_DISCOUNT_MATCH.percentage;
-                CODE_DISCOUNT_MATCH.elementalInfo();
-                makeDiscount(totalAmount, discountAmount);
-            } 
-            CODE_DISCOUNT_INPUT.value = "";
-        }
-
-        /*Función que hace el descuento */
-        function makeDiscount(total, discount) {
-            let disc = (total * discount) / 100;
-            let totalMinusDisc = total - disc;
-            console.log(`El total con descuento es $${totalMinusDisc}`);
-            CART_TOTAL.textContent = `$${totalMinusDisc}`;
-        }
-
     });
-    console.log(totalAmount)
-    CART_TOTAL.textContent = `$${totalAmount}`;
-};
 
-showCart();
+    console.log(`Total: $${totalAmount}`);
+    CART_TOTAL.textContent = `$${totalAmount}`;
+
+    /*Botón que aplica códigos de descuento */
+    const BTN_DISCOUNT = document.getElementById("applyCode");
+    BTN_DISCOUNT.addEventListener("click", (applyDiscount));
+
+    /*Función que aplica códigos de descuento */
+    function applyDiscount() {
+        const CODE_DISCOUNT_INPUT = document.getElementById("codeDiscountInput");
+        let discountCode = CODE_DISCOUNT_INPUT.value.toUpperCase();
+        const CODE_DISCOUNT_JSON = JSON.stringify(discountCode);
+        localStorage.setItem("codigo", CODE_DISCOUNT_JSON);
+        const CODE_DISCOUNT_FROM_STORAGE = localStorage.getItem("codigo");
+        const CODE_DISCOUNT_TO_USE = JSON.parse(CODE_DISCOUNT_FROM_STORAGE);
+
+        const CODE_DISCOUNT_MATCH = DISCOUNTS_ARRAY.find(discount => discount.code === CODE_DISCOUNT_TO_USE);
+        if (CODE_DISCOUNT_MATCH) {
+            discountAmount = CODE_DISCOUNT_MATCH.percentage;
+            CODE_DISCOUNT_MATCH.elementalInfo();
+            makeDiscount(totalAmount, discountAmount);
+        }
+        CODE_DISCOUNT_INPUT.value = "";
+    }
+
+}
+
 
 /*Función que elimina producto del carrito */
 const ERASE_FROM_CART = (id) => {
@@ -225,4 +219,16 @@ const ERASE_FROM_CART = (id) => {
     const PRODUCT_INDEX = cartProducts.indexOf(PRODUCT_TO_ERASE);
     cartProducts.splice(PRODUCT_INDEX, 1);
     showCart();
+};
+
+/*Función que hace el descuento */
+function makeDiscount() {
+    let totalAmount = 0;
+    cartProducts.forEach(product => {
+        const DISC = (product.price * discountAmount) / 100;
+        const TOTAL_MINUS_DISC = product.price - DISC;
+        totalAmount += TOTAL_MINUS_DISC * product.quantity;
+    })
+    console.log(`Total con descuento: $${totalAmount}`);
+    CART_TOTAL.textContent = `$${totalAmount}`;
 }
