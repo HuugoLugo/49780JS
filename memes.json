@@ -1,0 +1,6 @@
+[
+    {"name":"sad", "text":"Noooo, ¿por qué?", "img":"./assets/bobTriste.PNG"},
+    {"name":"leave", "text":"Espero pueda dormir bien hoy😥", "img":"./assets/veteBatman.PNG"},
+    {"name":"happy", "text":"Siii, gracias por su compra", "img":"./assets/bobFeliz.PNG" },
+    {"name":"come", "text":"Que tenga un buen día😊", "img":"./assets/vuelvaApu.PNG"}
+]

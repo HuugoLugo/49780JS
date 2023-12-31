@@ -70,7 +70,7 @@ const DISCOUNTS_ARRAY = [];
 DISCOUNTS_ARRAY.push(DISCOUNT_YEAR1, DISCOUNT_YEAR2, DISCOUNT_NOV1, DISCOUNT_DEC1, DISCOUNT_FEB1);
 
 
-/*Crea los divs que muestran los productos de las clases y botón para agregar al carrito*/
+/*Crea los divs que muestran los productos de las clases y botón para agregar al carrito, se hace uso de toastify*/
 const CAKES_CONTAINER = document.getElementById("cakesSection");
 const SHOW_CAKES = () => {
     CAKES_ARRAY.forEach(product => {
@@ -87,6 +87,19 @@ const SHOW_CAKES = () => {
 
         const BOTON = document.getElementById(`boton${product.id}`);
         BOTON.addEventListener("click", () => {
+            Toastify({
+                text: `Se ha añadido ${product.name} al carrito`,
+                duration: 3000,
+                destination: "checkout.html",
+                newWindow: true,
+                position: "center",
+                gravity: "up",
+                stopOnFocus: true,
+                style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                onClick: function () { }
+            }).showToast();
             ADD_CAKE_TO_CART(product.id);
         })
     })
@@ -110,6 +123,19 @@ const SHOW_BREADS = () => {
 
         const BOTON = document.getElementById(`boton${product.id}`);
         BOTON.addEventListener("click", () => {
+            Toastify({
+                text: `Se ha añadido ${product.name} al carrito`,
+                duration: 3000,
+                destination: "checkout.html",
+                newWindow: true,
+                position: "center",
+                gravity: "up",
+                stopOnFocus: true,
+                style: {
+                    background: "linear-gradient(to right, #4f000b, #96c93d)",
+                },
+                onClick: function () { }
+            }).showToast();
             ADD_BREAD_TO_CART(product.id);
         })
     })
@@ -148,8 +174,12 @@ const CART_CONTAINER = document.getElementById("cartSection");
 /*Ver - vaciar carrito */
 const ERASE_CART = document.getElementById("eraseCart");
 ERASE_CART.addEventListener("click", () => {
+    cartProducts.forEach(product => {
+        product.quantity = 1
+    })
     cartProducts.splice(0, cartProducts.length);
     showCart();
+    CART_TOTAL.textContent = "0";
 })
 
 const SEE_CART = document.getElementById("seeCart");
@@ -160,7 +190,7 @@ SEE_CART.addEventListener("click", () => {
 const CART_TOTAL = document.getElementById("cartTotal");
 
 /*Función que despliega la lista de productos que se han añadido al carrito, botón para eliminar un producto, y botón
-para aplicar código de descuento que es alojado en localStorage*/
+para aplicar código de descuento que es ingresado y luego alojado en localStorage*/
 function showCart() {
     const CART_LIST = document.getElementById("cartList");
     let totalAmount = 0;
@@ -169,9 +199,9 @@ function showCart() {
     cartProducts.forEach(product => {
         const LIST_PRODUCT = document.createElement("li");
         LIST_PRODUCT.innerHTML = `
-    <span>${product.name}</span>
-    <span>${product.quantity}</span>
-    <span>$${product.price}</span>
+        <div><span>${product.name}</span></div>
+        <div><span>${product.quantity} x</span>
+    <span>$${product.price}</span></div>
     <button id="erase${product.id}">Eliminar producto</button>
     `
         CART_LIST.appendChild(LIST_PRODUCT);
@@ -213,9 +243,10 @@ function showCart() {
 }
 
 
-/*Función que elimina producto del carrito */
+/*Función que elimina producto del carrito, también la cantidad */
 const ERASE_FROM_CART = (id) => {
     const PRODUCT_TO_ERASE = cartProducts.find(product => product.id === id);
+    PRODUCT_TO_ERASE.quantity = 1
     const PRODUCT_INDEX = cartProducts.indexOf(PRODUCT_TO_ERASE);
     cartProducts.splice(PRODUCT_INDEX, 1);
     showCart();
@@ -231,4 +262,78 @@ function makeDiscount() {
     })
     console.log(`Total con descuento: $${totalAmount}`);
     CART_TOTAL.textContent = `$${totalAmount}`;
+}
+
+
+/*Usar api local archivo json con fetch para mostrar un mensaje al finalizar o cancelar la compra*/
+const API_MEMES = "./memes.json";
+
+const SECTION_MEMES = document.getElementById("memesSection");
+const BTN_END_PURCHASE = document.getElementById("endPurchase");
+const BTN_CANCEL_PURCHASE = document.getElementById("cancelPurchase");
+
+fetch(API_MEMES)
+    .then(response => response.json())
+    .then((memes) => {
+        console.log(memes);
+        BTN_END_PURCHASE.addEventListener("click", () => {
+            if (CART_TOTAL.textContent === "0") {
+                console.log("Pero si no ha seleccionado nada aún");
+            } else {
+                showMemeHappy(memes);
+                setTimeout(() => { showMemeCome(memes) }, 5000);
+            }
+        })
+        BTN_CANCEL_PURCHASE.addEventListener("click", () => {
+            if (CART_TOTAL.textContent === "0") {
+                console.log("Pero si no ha seleccionado nada aún")
+            } else {
+                showMemeSad(memes);
+                setTimeout(() => { showMemeGetOut(memes) }, 5000);
+            }
+        })
+    })
+    .catch(error => console.log(error))
+
+
+function showMemeHappy(meme) {
+    SECTION_MEMES.innerHTML = `
+    <div class="imageMemeCont">
+    <img src="${meme[2].img}" alt="${meme[2].text}" title="feliz" class="imageMeme">
+    <h3>${meme[2].text}</h3>
+    </div>
+    `
+}
+
+function showMemeCome(meme) {
+    SECTION_MEMES.innerHTML = `
+    <div class="imageMemeCont">
+    <img src="${meme[3].img}" alt="${meme[3].text}" title="vuelva pronto" class="imageMeme">
+    <h3>${meme[3].text}</h3>
+    </div>
+`
+    setTimeout(() => { eraseMemes() }, 5000);
+}
+
+function showMemeSad(meme) {
+    SECTION_MEMES.innerHTML = `
+    <div class="imageMemeCont">
+    <img src="${meme[0].img}" alt="${meme[0].text}" title="triste" class="imageMeme">
+    <h3>${meme[0].text}</h3>
+    </div>
+    `
+}
+
+function showMemeGetOut(meme) {
+    SECTION_MEMES.innerHTML = `
+<div class="imageMemeCont">
+<img src="${meme[1].img}" alt="${meme[1].text}" title="largo de aqui" class="imageMeme">
+<h3>${meme[1].text}</h3>
+</div>
+`
+    setTimeout(() => { eraseMemes() }, 5000);
+}
+
+function eraseMemes() {
+    SECTION_MEMES.innerHTML = ``
 }

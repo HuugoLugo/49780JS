@@ -7,6 +7,8 @@ body {
 
 #cakesSection,
 #breadsSection {
+    position: relative;
+    width: 80%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -15,8 +17,8 @@ body {
 
 .imageProduct {
     /*Aplicable a toda imagen de producto*/
-    width: 330px;
-    height: 240px;
+    width: 290px;
+    height: 220px;
     text-align: center;
 }
 
@@ -27,9 +29,63 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 340px;
-    height: 340px;
+    width: 300px;
+    height: 320px;
     background-color: #f9f7f3;
+    padding: 5px;
+    margin: 5px;
+}
+
+#cartSection {
+    position: fixed;
+    width: 20%;
+    top: 10%;
+    left: 79%;
+}
+
+#cartList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    border-style: double;
+    border-color: #201d19;
+    display: flex;
+    flex-direction: column;
+}
+
+#memesSection {
+    position: fixed;
+    top: 15%;
+    left: 15%;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.imageMeme {
+    width: 380px;
+    height: 420px;
+    text-align: center;
+}
+
+.imageMemeCont {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+    height: 460px;
+    background-color: #201d19;
+    color: #f9f7f3;
     padding: 5px;
     margin: 5px;
 }

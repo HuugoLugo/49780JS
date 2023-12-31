@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HugoLugo</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h1>Tercera Entrega</h1>
+    <h1>Entrega Final</h1>
 
     <h2>Pastelería</h2>
     <section id="cakesSection">
@@ -21,17 +22,24 @@
         <!--Aquí van los divs de productos creados en js -->
     </section>
 
-    <h2>Carrito</h2>
-
     <section id="cartSection">
+        <h2>Carrito</h2>
         <button id="seeCart">Ver carrito</button>
         <button id="eraseCart">Vaciar carrito</button>
         <ul id="cartList"></ul> <!--Aquí se añaden los productos que están en carrito -->
         <p>Total: <span id="cartTotal">0</span></p>
-        <p>¿Tiene un código de descuento? <input id="codeDiscountInput" type="text" placeholder="Ingreselo"> <button id="applyCode">Aplicar</button></p>
-
+        <p>¿Tiene un código de descuento? <input id="codeDiscountInput" type="text" placeholder="Ingreselo">
+            <button id="applyCode">Aplicar</button>
+        </p>
+        <button id="endPurchase">Finalizar compra</button>
+        <button id="cancelPurchase">Cancelar compra</button>
     </section>
 
+    <section id="memesSection">
+        <!--Aquí van los memes del archivo json -->
+    </section>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="./js/main.js"></script>
 </body>
 
